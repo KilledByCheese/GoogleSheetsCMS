@@ -80,7 +80,7 @@ const app = function () {
 			article.innerHTML = `
 				<h2>${post.title}</h2>
 				<div class="article-details">
-					<div>By ${post.author} on ${_formatDate(post.timestamp)}</div>
+					<div>By ${post.author} on ${_formatDate(post.zeitstempel)}</div>
 					<div>Posted in ${post.category}</div>
 				</div>
 				${_formatContent(post.content)}
