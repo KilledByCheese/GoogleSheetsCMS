@@ -77,11 +77,12 @@ const app = function () {
 	function _renderPosts (posts) {
 		posts.forEach(function (post) {
 			const article = document.createElement('article');
+			const category = 'category_' + post.category;
 			article.innerHTML = `
 				<h2>${post.title}</h2>
 				<div class="article-details">
 					<div>By ${post.author} on ${_formatDate(post.zeitstempel)}</div>
-					<div>Posted in ${post.category}</div>
+					<div class="${category}">Posted in ${post.category}</div>
 				</div>
 				${_formatContent(post.content)}
 			`;

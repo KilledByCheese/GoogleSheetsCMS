@@ -96,6 +96,29 @@ footer p {
 	margin-top: 0;
 }
 
+.category_General {
+	padding: 3px;
+	display: inline;
+	background: #0060ff;
+	color: #ffffff;
+}
+
+.category_Technology {
+	padding: 3px;
+	display: inline;
+	background: #007500;
+	color: #ffffff;
+}
+
+.category_FunFacts {
+	padding: 3px;
+	display: inline;
+	background: #751300;
+	color: #ffffff;
+}
+
+
+
 @media only screen and (min-width : 992px) {
 	.article-details {
 		align-items: center;
