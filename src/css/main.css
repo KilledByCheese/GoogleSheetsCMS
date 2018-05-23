@@ -1,22 +1,5 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Marketplace
-Explore
- @KilledByCheese
-Sign out
-6
-79 19 danielireson/google-sheets-blog-cms
- Code  Issues 2  Pull requests 0  Projects 0  Wiki  Insights
-google-sheets-blog-cms/src/css/main.css
-8890e85  on 19 Feb
-@danielireson danielireson add readme
-     
-123 lines (99 sloc)  1.55 KB
 html, body {
-	background: #f8f8f8;
+	background: linear-gradient(to bottom right #ffffff, #dfe6e9);
 	color: #2d3436;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: normal;
@@ -31,10 +14,6 @@ a {
 
 a:hover {
 	border-color: #1a1a1a;
-}
-
-img {
-	max-width: 100%;
 }
 
 button {
@@ -59,8 +38,8 @@ header, main, footer {
 }
 
 header {
-	background: #2d3436;
-	color: white;
+	background: linear-gradient(to bottom right, #ff5a0f, #f9a109);
+	color: #000000;
 	text-align: center;
 }
 
@@ -85,7 +64,8 @@ nav span {
 }
 
 nav button {
-	margin: 0 0.5em 1em 0;
+	/*Spacing between the Filter Buttons*/
+	margin: 0.25em;
 }
 
 article {
@@ -108,7 +88,7 @@ article {
 }
 
 footer {
-	background: #dfe6e9;
+	background: linear-gradient(to bottom right, #f9a109, #ff5a0f);
 	text-align: center;
 }
 
@@ -137,16 +117,3 @@ footer p {
 		padding: 4em 30%;
 	}
 }
-© 2018 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-API
-Training
-Shop
-Blog
-About
-Press h to open a hovercard with more details.
