@@ -24,7 +24,7 @@ const app = function () {
 		_setNotice('Loading posts');
 
 		fetch(_buildApiUrl(state.activePage, state.activeCategory), {
-			method: 'GET',
+			//method: 'GET',
 			headers: {
 				'API_KEY' : 'abcdef'
 			}
