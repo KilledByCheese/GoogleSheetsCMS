@@ -51,11 +51,22 @@ const app = function () {
 	  	link.innerHTML = _capitalize(label);
 	  	link.classList = isSelected ? 'selected' : '';
 	  	link.onclick = function (event) {
+			let inputs = document.getElementsByTagName("INPUT");
+			for (var i = 0; i < inputs.length; i++) {
+    				if (inputs[i].type === 'submit') {
+     			   		inputs[i].disabled = true;
+    				}
+			}
 	  		let category = label === 'no filter' ? null : label.toLowerCase();
 
 			_resetActivePage();
 	  		_setActiveCategory(category);
 	  		_getNewPosts();
+			for (var i = 0; i < inputs.length; i++) {
+    				if (inputs[i].type === 'submit') {
+     			   		inputs[i].disabled = false;
+    				}
+			}
 	  	};
 
 	  	return link;
