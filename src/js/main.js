@@ -25,6 +25,7 @@ const app = function () {
 
 		fetch(_buildApiUrl(state.activePage, state.activeCategory), {
 			method: 'GET',
+			mode: 'no-cors',
 			headers: {
 				'API_KEY' : 'abcdef'
 			}
