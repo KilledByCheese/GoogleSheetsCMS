@@ -23,7 +23,12 @@ const app = function () {
 	function _getPosts () {
 		_setNotice('Loading posts');
 
-		fetch(_buildApiUrl(state.activePage, state.activeCategory))
+		fetch(_buildApiUrl(state.activePage, state.activeCategory), {
+			method: 'GET',
+			headers: {
+				'API_KEY' : 'abcdef'
+			}
+		})
 			.then((response) => response.json())
 			.then((json) => {
 				if (json.status !== 'success') {
