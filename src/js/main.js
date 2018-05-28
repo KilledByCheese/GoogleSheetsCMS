@@ -23,7 +23,7 @@ const app = function () {
 	function _getPosts () {
 		_setNotice('Loading posts');
 
-		fetch(_buildApiUrl(state.activePage, state.activeCategory))
+		fetch(_buildApiUrl(state.activePage, state.activeCategory, ''))
 			.then((response) => response.json())
 			.then((json) => {
 				if (json.status !== 'success') {
@@ -51,28 +51,24 @@ const app = function () {
 	  	link.innerHTML = _capitalize(label);
 	  	link.classList = isSelected ? 'selected' : '';
 	  	link.onclick = function (event) {
-			let inputs = document.getElementsByTagName("button");
-			for (var i = 0; i < inputs.length; i++) {
-     			   		inputs[i].disabled = true;    				
-			}
+			
 	  		let category = label === 'no filter' ? null : label.toLowerCase();
 
 			_resetActivePage();
 	  		_setActiveCategory(category);
 	  		_getNewPosts();
-			for (var i = 0; i < inputs.length; i++) { 
-     			   	inputs[i].disabled = false;    				
-			}
+			
 	  	};
 
 	  	return link;
 	}
 
-	function _buildApiUrl (page, category) {
+	function _buildApiUrl (page, category, author) {
 		let url = API_BASE;
 		url += '?key=' + API_KEY;
 		url += '&page=' + page;
 		url += category !== null ? '&category=' + category : '';
+		url += author !== null ? '&search=' + author : '';
 
 		return url;
 	}
