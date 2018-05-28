@@ -117,6 +117,13 @@ footer p {
 	color: #ffffff;
 }
 
+.category_CatFacts {
+	padding: 3px;
+	display: inline;
+	background: #d870d1;
+	color: #ffffff;
+}
+
 
 
 @media only screen and (min-width : 992px) {
