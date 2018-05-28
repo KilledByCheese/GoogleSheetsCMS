@@ -1,8 +1,8 @@
 const app = function () {
 	const API_BASE = 'https://script.google.com/macros/s/AKfycbyJjyv05dbsKgcvHQCun12VTc-XIVp9i6_p0BiPS_X-9nxg-P5j/exec';
 	const API_KEY = 'abcdef';
-	const CATEGORIES = ['general', 'technology', 'funfacts'];
-	const AUTHORS = ['', 'KToffl', 'KilledByCheese', "I'm feeling curious"];
+	const CATEGORIES = ['general', 'technology', 'funfacts', 'catFacts'];
+	const AUTHORS = ['', 'KToffl', 'KilledByCheese', "I'm feeling curious", 'CatFacts-Bot'];
 
 	const state = {activePage: 1, activeCategory: null, activeAuthor: ''};
 	const page = {};
