@@ -47,7 +47,7 @@ const app = function () {
 			op.value = author;
 			op.text = author;
 			if(author === '') {
-				op.text = 'Select an author:';
+				op.text = 'All authors - select to filter';
 			}
 			dropDown.options.add(op);
 		});
