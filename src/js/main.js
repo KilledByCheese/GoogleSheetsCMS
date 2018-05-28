@@ -2,8 +2,9 @@ const app = function () {
 	const API_BASE = 'https://script.google.com/macros/s/AKfycbyJjyv05dbsKgcvHQCun12VTc-XIVp9i6_p0BiPS_X-9nxg-P5j/exec';
 	const API_KEY = 'abcdef';
 	const CATEGORIES = ['general', 'technology', 'funfacts'];
+	const AUTHORS = ['', 'KToffl', 'KilledByCheese', "I'm feeling curious"];
 
-	const state = {activePage: 1, activeCategory: null};
+	const state = {activePage: 1, activeCategory: null, activeAuthor: ''};
 	const page = {};
 
 	function init () {
@@ -12,6 +13,7 @@ const app = function () {
 		page.container = document.getElementById('container');
 
 		_buildFilter();
+		buildAuthorSelection();
 		_getNewPosts();
 	}
 
@@ -23,7 +25,7 @@ const app = function () {
 	function _getPosts () {
 		_setNotice('Loading posts');
 
-		fetch(_buildApiUrl(state.activePage, state.activeCategory, ''))
+		fetch(_buildApiUrl(state.activePage, state.activeCategory, state.activeAuthor))
 			.then((response) => response.json())
 			.then((json) => {
 				if (json.status !== 'success') {
@@ -36,6 +38,25 @@ const app = function () {
 			.catch((error) => {
 				_setNotice('Unexpected error loading posts');
 			})
+	}
+
+	function buildAuthorSelection () {
+		const dropDown = document.createElement('select');
+		AUTHORS.forEach(function(author) {
+			var op = new Option();
+			op.value = author;
+			op.text = author;
+			if(author === '') {
+				op.text = 'Select an author:';
+			}
+			dropDown.options.add(op);
+		});
+		dropDown.onchange = function (event) {
+			_resetActivePage();
+			setActiveAuthor(dropDown.value);
+			_getNewPosts();
+		}
+		page.filter.appendChild(dropDown);
 	}
 
 	function _buildFilter () {
@@ -139,6 +160,10 @@ const app = function () {
 		Array.from(page.filter.children).forEach(function (element) {
   			element.classList = label === element.innerHTML.toLowerCase() ? 'selected' : '';
   		});
+	}
+
+	function setActiveAuthor (author) {
+		state.activeAuthor = author;
 	}
 
 	return {
